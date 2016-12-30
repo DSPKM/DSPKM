@@ -1,0 +1,14 @@
+fs = 1e2;
+h = fir1(256,1e-9/fs);
+x = [zeros(1,2*fs),ones(1,5*fs),zeros(1,4*fs)];
+y1 = filtfilt(h,1,x);
+[H,f] = freqz(h,1,1024,fs);
+plot(f,abs(H));
+h2=fir1(128,30/fs,'high');
+y2 = filtfilt(h2,1,x);
+v1 = exp(1j*pi*50/fs);
+v = [v1 conj(v1)]; h3=poly(v);
+H = freqz(h3);  h3 = h3/max(abs(H));
+n = .1*cos(2*pi*50/200*(1:length(x)));
+xx = x+n;
+y3 = filtfilt(h3,1,xx);
