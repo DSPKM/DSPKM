@@ -1,6 +1,6 @@
 clear; clc; close all
 rng('default'); rng(0)
-addpath(genpath('.'))
+addpath(genpath('.')), addpath('../libsvm/')
 
 % Select dataset:
 ind_datafunc = 1;
