@@ -1,0 +1,1 @@
+[errKRadians] = acos(kernelmatrix('rbf',target', patterns',sigma));
